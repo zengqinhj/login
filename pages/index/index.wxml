@@ -1,0 +1,37 @@
+<view wx:if="{{isHide}}">
+    <view wx:if="{{canIUse}}" >
+        <view class='header'>
+            <image src='/images/wx_login.png'></image>
+        </view>
+
+        <view class='content'>
+            <view>申请获取以下权限</view>
+            <text>获得你的公开信息(昵称，头像等)</text>
+        </view>
+
+        <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+            授权登录
+        </button>
+    </view>
+    <view wx:else>请升级微信版本</view>
+</view>
+<view wx:elif="{{isPhone}}">
+    <view>
+     <view class="container">
+  <view class='row'>
+     <input placeholder='请输入手机号' bindinput='bindPhoneInput'/> 
+  </view>
+  <view class='row'>
+     <input placeholder='请输验证码' bindinput='bindCodeInput' style='width:60%;'/> 
+     <button class='codeBtn' bindtap='getCode'  disabled="{{smsFlag}}">{{sendTime}}</button>
+  </view>
+  <view class="row">
+     <button class='save' bindtap='save' >手机验证</button>
+  </view>
+  
+</view>
+    </view>
+</view>
+<view wx:else>
+<!-- <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}" style="position: fixed;width: 100%;height: 100%;" show-location="true"></map> -->
+</view>
